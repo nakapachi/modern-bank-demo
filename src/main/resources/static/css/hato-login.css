@@ -1,1 +1,198 @@
-.hato-login-page{min-height:100vh;background:#fff;color:#10231d;--hato-green:#00583f;--hato-pale:#f0f6f3}.hato-login-header{height:126px;padding:28px 54px;display:grid;grid-template-columns:170px 1fr auto;align-items:start;background:#fff}.login-menu{width:76px;padding:0;border:0;background:transparent;color:var(--hato-green);display:grid;justify-items:center;gap:7px;cursor:pointer}.login-menu i{display:block;width:38px;height:5px;border-radius:4px;background:var(--hato-green)}.login-menu span{font-size:.72rem;font-weight:700}.hato-login-brand{justify-self:start;display:flex;gap:12px;align-items:center;color:var(--hato-green);text-decoration:none}.hato-symbol{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--hato-green);color:#fff;font:800 20px Georgia,serif}.hato-login-brand b,.hato-login-brand small{display:block}.hato-login-brand b{font-size:1.45rem;letter-spacing:.08em;line-height:1.15}.hato-login-brand small{font-size:.58rem;letter-spacing:.22em}.login-help{min-width:70px;color:var(--hato-green);display:grid;justify-items:center;text-decoration:none}.login-help>span{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--hato-green);color:#fff;font-weight:900}.login-help small{font-weight:700}.hato-login-main{width:min(1120px,calc(100% - 48px));min-height:560px;margin:0 auto;padding:55px 0 80px;display:grid;grid-template-columns:1fr 410px;align-items:center;gap:110px}.login-introduction{padding-left:15px}.login-kicker{margin:0;color:#00805a;font-size:.75rem;font-weight:800;letter-spacing:.24em}.login-introduction h1{margin:13px 0 25px;color:var(--hato-green);font-size:3.45rem;font-family:serif;font-weight:500;line-height:1.32;letter-spacing:.08em}.login-introduction>p:last-of-type{color:#596862;font-size:.95rem}.bank-facts{display:flex;gap:46px;margin-top:42px}.bank-facts>div{padding-left:15px;border-left:3px solid #00a476}.bank-facts small,.bank-facts b{display:block}.bank-facts small{color:#74807c;font-size:.7rem}.bank-facts b{color:var(--hato-green);font-size:1.15rem}.hato-login-card{padding:36px 38px 32px;border:1px solid #e2e8e5;border-radius:8px;background:#fff;box-shadow:0 20px 45px #00583f1c}.card-label{margin:0;color:#65736d;font-size:.72rem;font-weight:700}.hato-login-card h2{margin:2px 0 25px;color:var(--hato-green);font-size:1.75rem}.hato-login-card form{display:grid;gap:18px}.hato-login-card label{display:grid;gap:6px;color:#34443e;font-size:.8rem;font-weight:700}.hato-login-card input{width:100%;height:46px;padding:10px 12px;border:1px solid #bfcac5;border-radius:4px;background:#fff}.hato-login-card input:focus{outline:2px solid #00805a44;border-color:#00805a}.hato-login-card form button{height:50px;margin-top:4px;border:0;border-radius:25px;background:linear-gradient(90deg,#00583f,#00805a);color:#fff;font-weight:800;cursor:pointer;box-shadow:0 8px 16px #00583f25}.login-error,.login-success{padding:11px 13px;margin:0 0 17px;border-radius:4px;font-size:.78rem}.login-error{background:#fff0ed;color:#8d3022}.login-success{background:#edf7f1;color:#246442}.demo-account{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding:17px 0 0;border-top:1px solid #e4e9e6;font-size:.72rem}.demo-account b,.demo-account small{display:block}.demo-account small{color:#7a8581}.demo-account code{padding:5px 8px;border-radius:3px;background:var(--hato-pale);color:var(--hato-green)}.login-security{width:min(1120px,calc(100% - 48px));margin:0 auto 45px;padding:20px 25px;display:flex;align-items:center;gap:14px;border-radius:5px;background:var(--hato-pale);color:var(--hato-green)}.login-security>span{font-size:1.2rem}.login-security b,.login-security small{display:block}.login-security small{color:#607069}.hato-login-footer{min-height:86px;padding:24px max(24px,calc((100% - 1072px)/2));display:flex;justify-content:space-between;background:#004b36;color:#dcece6;font-size:.72rem}.hato-login-footer div{display:flex;gap:24px}.hato-login-footer b{color:#fff;font-size:.92rem}@media(max-width:800px){.hato-login-header{height:100px;padding:20px 24px;grid-template-columns:80px 1fr auto}.hato-login-main{grid-template-columns:1fr;gap:35px;padding-top:25px}.login-introduction h1{font-size:2.5rem}.bank-facts{margin-top:25px}.hato-login-card{width:min(430px,100%);justify-self:center}}@media(max-width:560px){.hato-login-header{padding:18px 14px;grid-template-columns:58px 1fr 48px}.login-menu{width:48px}.login-menu i{width:29px;height:4px}.hato-login-brand{justify-self:center}.hato-symbol{width:34px;height:34px}.hato-login-brand b{font-size:1.05rem}.hato-login-brand small{font-size:.48rem}.login-help small,.login-menu span{font-size:.56rem}.hato-login-main{width:calc(100% - 28px);padding:15px 0 45px}.login-introduction h1{font-size:2rem}.login-introduction>p:last-of-type{font-size:.8rem}.bank-facts{gap:20px}.hato-login-card{padding:27px 22px}.login-security{width:calc(100% - 28px)}.hato-login-footer{display:block}.hato-login-footer small{display:block;margin-top:10px}}
+.hato-login-page {
+  min-height: 100vh;
+  background: #fff;
+  color: #10231d;
+  --hato-green: #00583f;
+  --hato-bright: #00805a;
+  --hato-pale: #f0f6f3;
+}
+
+.hato-login-header {
+  height: 126px;
+  padding: 28px 54px;
+  display: grid;
+  grid-template-columns: 170px 1fr auto;
+  align-items: start;
+  background: #fff;
+}
+
+.login-menu {
+  width: 76px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--hato-green);
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  cursor: pointer;
+}
+
+.login-menu i {
+  display: block;
+  width: 38px;
+  height: 5px;
+  border-radius: 4px;
+  background: var(--hato-green);
+}
+
+.login-menu span { font-size: .72rem; font-weight: 700; }
+.hato-login-brand { justify-self: start; display: block; text-decoration: none; }
+.hato-login-brand img { display: block; width: 225px; height: auto; }
+
+.login-help {
+  min-width: 70px;
+  color: var(--hato-green);
+  display: grid;
+  justify-items: center;
+  text-decoration: none;
+}
+
+.login-help > span {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--hato-green);
+  color: #fff;
+  font-weight: 900;
+}
+
+.login-help small { font-weight: 700; }
+
+.hato-login-main {
+  width: min(1120px, calc(100% - 48px));
+  min-height: 560px;
+  margin: 0 auto;
+  padding: 55px 0 80px;
+  display: grid;
+  grid-template-columns: 1fr 410px;
+  align-items: center;
+  gap: 110px;
+}
+
+.login-introduction { padding-left: 15px; }
+.login-kicker { margin: 0; color: var(--hato-bright); font-size: .75rem; font-weight: 800; letter-spacing: .24em; }
+
+.login-introduction h1 {
+  margin: 13px 0 25px;
+  color: var(--hato-green);
+  font: 500 3.45rem/1.32 serif;
+  letter-spacing: .08em;
+}
+
+.login-introduction > p:last-of-type { color: #596862; font-size: .95rem; }
+.bank-facts { display: flex; gap: 46px; margin-top: 42px; }
+.bank-facts > div { padding-left: 15px; border-left: 3px solid #00a476; }
+.bank-facts small, .bank-facts b { display: block; }
+.bank-facts small { color: #74807c; font-size: .7rem; }
+.bank-facts b { color: var(--hato-green); font-size: 1.15rem; }
+
+.hato-login-card {
+  padding: 36px 38px 32px;
+  border: 1px solid #e2e8e5;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 20px 45px #00583f1c;
+}
+
+.card-label { margin: 0; color: #65736d; font-size: .72rem; font-weight: 700; }
+.hato-login-card h2 { margin: 2px 0 25px; color: var(--hato-green); font-size: 1.75rem; }
+.hato-login-card form { display: grid; gap: 18px; }
+.hato-login-card label { display: grid; gap: 6px; color: #34443e; font-size: .8rem; font-weight: 700; }
+
+.hato-login-card input {
+  width: 100%;
+  height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #bfcac5;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.hato-login-card input:focus { outline: 2px solid #00805a44; border-color: var(--hato-bright); }
+
+.hato-login-card form button {
+  height: 50px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 25px;
+  background: linear-gradient(90deg, #00583f, #00805a);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 16px #00583f25;
+}
+
+.login-error, .login-success { padding: 11px 13px; margin: 0 0 17px; border-radius: 4px; font-size: .78rem; }
+.login-error { background: #fff0ed; color: #8d3022; }
+.login-success { background: #edf7f1; color: #246442; }
+
+.demo-account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 17px;
+  border-top: 1px solid #e4e9e6;
+  font-size: .72rem;
+}
+
+.demo-account b, .demo-account small { display: block; }
+.demo-account small { color: #7a8581; }
+.demo-account code { padding: 5px 8px; border-radius: 3px; background: var(--hato-pale); color: var(--hato-green); }
+
+.login-security {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto 45px;
+  padding: 20px 25px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 5px;
+  background: var(--hato-pale);
+  color: var(--hato-green);
+}
+
+.login-security > span { font-size: 1.2rem; }
+.login-security b, .login-security small { display: block; }
+.login-security small { color: #607069; }
+
+.hato-login-footer {
+  min-height: 86px;
+  padding: 24px max(24px, calc((100% - 1072px) / 2));
+  display: flex;
+  justify-content: space-between;
+  background: #004b36;
+  color: #dcece6;
+  font-size: .72rem;
+}
+
+.hato-login-footer div { display: flex; gap: 24px; }
+.hato-login-footer b { color: #fff; font-size: .92rem; }
+
+@media (max-width: 800px) {
+  .hato-login-header { height: 100px; padding: 20px 24px; grid-template-columns: 80px 1fr auto; }
+  .hato-login-main { grid-template-columns: 1fr; gap: 35px; padding-top: 25px; }
+  .login-introduction h1 { font-size: 2.5rem; }
+  .bank-facts { margin-top: 25px; }
+  .hato-login-card { width: min(430px, 100%); justify-self: center; }
+}
+
+@media (max-width: 560px) {
+  .hato-login-header { padding: 18px 14px; grid-template-columns: 58px 1fr 48px; }
+  .login-menu { width: 48px; }
+  .login-menu i { width: 29px; height: 4px; }
+  .login-menu span, .login-help small { font-size: .56rem; }
+  .hato-login-brand { justify-self: center; }
+  .hato-login-brand img { width: 150px; }
+  .hato-login-main { width: calc(100% - 28px); padding: 15px 0 45px; }
+  .login-introduction h1 { font-size: 2rem; }
+  .login-introduction > p:last-of-type { font-size: .8rem; }
+  .bank-facts { gap: 20px; }
+  .hato-login-card { padding: 27px 22px; }
+  .login-security { width: calc(100% - 28px); }
+  .hato-login-footer { display: block; }
+  .hato-login-footer small { display: block; margin-top: 10px; }
+}
