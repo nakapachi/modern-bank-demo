@@ -4,7 +4,7 @@
 <body class="dashboard-page">
 <header class="dashboard-header">
   <button class="menu-button" type="button" aria-label="メニュー" aria-controls="side-menu" aria-expanded="false"><i></i><i></i><i></i><span>メニュー</span></button>
-  <div class="customer-name"><a class="dashboard-brand" th:href="@{/accounts}" aria-label="はと銀行 ホーム"><img th:src="@{/images/hato-bank-logo.svg}" alt="はと銀行"></a><b th:text="${loginName}">alice</b><span>様</span></div>
+  <div class="customer-name"><a class="dashboard-brand" th:href="@{/accounts}" aria-label="はと銀行 ホーム"><img th:src="@{/images/hato-bank-logo.svg}" alt="はと銀行"></a><b th:text="${accountHolderName}">ナカタ ヒロミ</b><span>様</span></div>
   <div class="dashboard-tools"><a href="#help"><span class="tool-icon">?</span><small>お困りの方</small></a><form th:action="@{/logout}" method="post"><button><span class="lock-icon">▣</span><small>ログアウト</small></button></form></div>
 </header>
 <div class="menu-backdrop" data-menu-close></div><nav id="side-menu" class="side-menu" aria-hidden="true"><button type="button" data-menu-close>×</button><b>はと銀行</b><a th:href="@{/accounts}">ホーム・口座一覧</a><th:block th:if="${!#lists.isEmpty(accounts)}"><a th:href="@{/accounts/{id}(id=${accounts[0].id})}">口座詳細</a><a th:href="@{/accounts/{id}/deposit(id=${accounts[0].id})}">入金</a><a th:href="@{/accounts/{id}/withdraw(id=${accounts[0].id})}">出金</a><a th:href="@{/accounts/{id}/transfer(id=${accounts[0].id})}">振込・振替</a><a th:href="@{/accounts/{id}/history(id=${accounts[0].id})}">入出金明細</a></th:block></nav>

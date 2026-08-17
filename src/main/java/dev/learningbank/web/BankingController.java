@@ -23,14 +23,14 @@ public class BankingController {
     @GetMapping("/accounts")
     String accounts(Authentication auth, Model model) {
         model.addAttribute("accounts", banking.accountsFor(auth.getName()));
-        model.addAttribute("loginName", auth.getName());
+        addAccountHolderName(auth, model);
         return "accounts";
     }
 
     @GetMapping("/accounts/{id}")
     String account(@PathVariable Long id, Authentication auth, Model model) {
         model.addAttribute("account", banking.accountFor(id, auth.getName()));
-        model.addAttribute("loginName", auth.getName());
+        addAccountHolderName(auth, model);
         return "account";
     }
 
@@ -38,7 +38,7 @@ public class BankingController {
     String operation(@PathVariable Long id, @PathVariable String operation,
                      Authentication auth, Model model) {
         model.addAttribute("account", banking.accountFor(id, auth.getName()));
-        model.addAttribute("loginName", auth.getName());
+        addAccountHolderName(auth, model);
         model.addAttribute("operation", operation);
         return "transaction-form";
     }
@@ -47,7 +47,7 @@ public class BankingController {
     String history(@PathVariable Long id, Authentication auth, Model model) {
         model.addAttribute("account", banking.accountFor(id, auth.getName()));
         model.addAttribute("entries", banking.historyFor(id, auth.getName()));
-        model.addAttribute("loginName", auth.getName());
+        addAccountHolderName(auth, model);
         return "history";
     }
 
@@ -75,5 +75,9 @@ public class BankingController {
             flash.addFlashAttribute("error", ex.getMessage());
         }
         return "redirect:/accounts/" + id + "/" + operation;
+    }
+
+    private void addAccountHolderName(Authentication auth, Model model) {
+        model.addAttribute("accountHolderName", banking.displayNameFor(auth.getName()));
     }
 }
