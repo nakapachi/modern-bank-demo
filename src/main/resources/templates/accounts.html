@@ -13,12 +13,12 @@
   <div class="balance-controls" style="margin-top:24px"><button type="button">↻ <span>全口座の残高を更新</span></button><button type="button">◉ <span>残高を非表示</span></button></div>
   <section class="dashboard-account-grid">
     <a class="dashboard-account-card" th:each="a : ${accounts}" th:href="@{/accounts/{id}(id=${a.id})}">
-      <div><b>本店</b><span>支店コード 001</span></div><p>普通預金</p><code th:text="${a.accountNumber}"></code>
+      <div><b th:text="${a.branch.name}">本店営業部</b><span th:text="${'支店コード ' + a.branch.code}">支店コード 001</span></div><p th:text="${a.accountType.name()=='ORDINARY'?'普通預金':'貯蓄預金'}">普通預金</p><code th:text="${a.accountNumber}"></code>
       <strong th:text="${#numbers.formatDecimal(a.balance, 1, 'COMMA', 0, 'POINT')} + ' 円'"></strong>
     </a>
   </section>
 </main>
 <a class="floating-transfer" th:if="${!#lists.isEmpty(accounts)}" th:href="@{/accounts/{id}/transfer(id=${accounts[0].id})}">振込・振替</a>
-<div class="dashboard-bank"><b>はと銀行</b><span>銀行コード 201</span></div>
+<div class="dashboard-bank"><b>はと銀行</b><span>銀行コード 0200</span></div>
 <script th:src="@{/js/menu.js}"></script>
 </body></html>

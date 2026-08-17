@@ -17,8 +17,8 @@ class BankingServiceTest {
 
     @Test
     void transferMovesMoneyAtomically() {
-        BankAccount source = accounts.findByAccountNumber("1000001").orElseThrow();
-        BankAccount destination = accounts.findByAccountNumber("2000001").orElseThrow();
+        BankAccount source = accounts.findByAccountNumber("1000017").orElseThrow();
+        BankAccount destination = accounts.findByAccountNumber("1200013").orElseThrow();
         BigDecimal sourceBefore = source.getBalance();
         BigDecimal destinationBefore = destination.getBalance();
 
@@ -30,14 +30,14 @@ class BankingServiceTest {
 
     @Test
     void cannotWithdrawMoreThanBalance() {
-        BankAccount source = accounts.findByAccountNumber("1000002").orElseThrow();
+        BankAccount source = accounts.findByAccountNumber("1100015").orElseThrow();
         assertThatThrownBy(() -> banking.withdraw(source.getId(), "alice", new BigDecimal("999999.00")))
             .isInstanceOf(BankingException.class).hasMessageContaining("残高");
     }
 
     @Test
     void anotherCustomerCannotOperateAccount() {
-        BankAccount source = accounts.findByAccountNumber("1000001").orElseThrow();
+        BankAccount source = accounts.findByAccountNumber("1000017").orElseThrow();
         assertThatThrownBy(() -> banking.withdraw(source.getId(), "bob", new BigDecimal("100.00")))
             .isInstanceOf(BankingException.class).hasMessageContaining("権限");
     }

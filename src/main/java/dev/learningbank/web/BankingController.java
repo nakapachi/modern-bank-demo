@@ -13,7 +13,11 @@ public class BankingController {
     private final BankingService banking;
     public BankingController(BankingService banking) { this.banking = banking; }
 
-    @GetMapping("/") String home() { return "redirect:/accounts"; }
+    @GetMapping("/")
+    String home(Authentication auth) {
+        boolean admin = auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"));
+        return admin ? "redirect:/admin" : "redirect:/accounts";
+    }
     @GetMapping("/login") String login() { return "login"; }
 
     @GetMapping("/accounts")

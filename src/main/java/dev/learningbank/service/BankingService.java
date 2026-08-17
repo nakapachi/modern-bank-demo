@@ -64,8 +64,8 @@ public class BankingService {
     @Transactional
     public void transfer(Long sourceId, String username, String destinationNumber, BigDecimal rawAmount) {
         BigDecimal amount = validAmount(rawAmount);
-        if (destinationNumber == null || !destinationNumber.matches("\\d{7}")) {
-            throw new BankingException("振込先口座番号は7桁の数字で入力してください。");
+        if (!AccountNumber.isValid(destinationNumber)) {
+            throw new BankingException("振込先口座番号のチェックデジットが正しくありません。");
         }
         BankAccount source = ownedAccountForUpdate(sourceId, username);
         if (source.getAccountNumber().equals(destinationNumber)) {
@@ -85,6 +85,9 @@ public class BankingService {
             .orElseThrow(() -> new BankingException("口座が見つかりません。"));
         if (!account.getOwner().getUsername().equals(username)) {
             throw new BankingException("この口座を操作する権限がありません。");
+        }
+        if (account.getStatus() != AccountStatus.ACTIVE) {
+            throw new BankingException("この口座は現在お取引いただけません。");
         }
         return account;
     }

@@ -1,0 +1,22 @@
+spring:
+  config:
+    activate:
+      on-profile: postgres
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/hato_bank}
+    username: ${DB_USER:hato_app}
+    password: ${DB_PASSWORD}
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 1
+      connection-timeout: 30000
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true

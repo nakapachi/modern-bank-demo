@@ -142,6 +142,8 @@
 .demo-account b, .demo-account small { display: block; }
 .demo-account small { color: #7a8581; }
 .demo-account code { padding: 5px 8px; border-radius: 3px; background: var(--hato-pale); color: var(--hato-green); }
+.demo-credentials { display: grid; gap: 5px; justify-items: end; }
+.demo-credentials code { font-size: .66rem; }
 
 .login-security {
   width: min(1120px, calc(100% - 48px));
@@ -192,6 +194,8 @@
   .login-introduction > p:last-of-type { font-size: .8rem; }
   .bank-facts { gap: 20px; }
   .hato-login-card { padding: 27px 22px; }
+  .demo-account { align-items: start; gap: 10px; }
+  .demo-credentials { justify-items: stretch; }
   .login-security { width: calc(100% - 28px); }
   .hato-login-footer { display: block; }
   .hato-login-footer small { display: block; margin-top: 10px; }

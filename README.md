@@ -10,6 +10,10 @@
 - 所有口座の一覧・残高照会
 - 入金・出金・口座間振込
 - 取引履歴
+- 管理者専用ダッシュボード
+- 顧客検索・登録・連絡先・利用状態管理
+- 普通預金・貯蓄預金の口座開設
+- 口座の利用中・凍結・解約状態管理
 - 所有権チェック、残高チェック、CSRF対策
 - 悲観ロックとDBトランザクションによる残高更新
 - Flywayによるスキーマ管理
@@ -22,18 +26,23 @@
 ./mvnw spring-boot:run
 ```
 
-`http://localhost:8080` を開き、`alice` / `demo-pass` でログインします。Bobの振込先デモ口座は `2000001` です。データは `./data` に保存されます。
+`http://localhost:8080` を開き、顧客画面は `alice` / `demo-pass`、管理画面は `admin` / `admin-pass` でログインします。Bobの振込先デモ口座は `1200013` です。データは `./data` に保存されます。
 
-デモ銀行は「はと銀行」（銀行コード `201`）、本店（支店コード `001`）です。口座番号は7桁で表現します。
+管理画面は `http://localhost:8080/admin` です。管理者と顧客はSpring Securityのロールで分離されています。
+
+デモ銀行は「はと銀行」（銀行コード `0200`）です。支店コードは3桁です。口座番号は支店・科目別に自動採番し、科目番号帯1桁、店別・科目別連番5桁、Luhn（Mod 10）方式のチェックデジット1桁を合わせた7桁で表現します。普通預金は1番帯、貯蓄預金は2番帯で、採番済み番号は再使用しません。
 
 ## アーキテクチャ
 
 ```mermaid
 flowchart LR
     Browser --> Security[Spring Security]
-    Security --> Web[Thymeleaf MVC]
-    Web --> Service[BankingService]
+    Security --> Customer[顧客向けMVC]
+    Security --> Admin[管理者向けMVC]
+    Customer --> Service[BankingService]
+    Admin --> AdminService[AdminService]
     Service --> Repository[Spring Data JPA]
+    AdminService --> Repository
     Repository --> DB[(H2)]
     Flyway --> DB
 ```
