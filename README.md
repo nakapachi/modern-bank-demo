@@ -28,7 +28,7 @@
 必要環境はJava 21以上です。Maven Wrapperを同梱しています。
 
 ```bash
-./mvnw spring-boot:run
+./mvnw spring-boot:run -Dspring-boot.run.profiles=demo
 ```
 
 `http://localhost:8080`を開きます。
@@ -38,7 +38,7 @@
 | 顧客画面 | `alice` | `demo-pass` |
 | 管理画面 | `admin` | `admin-pass` |
 
-管理画面は`http://localhost:8080/admin`です。管理者と顧客はSpring Securityのロールで分離されています。Bobの振込先デモ口座は`1200013`です。標準設定ではデータを`./data`に保存します。
+管理画面は`http://localhost:8080/admin`です。管理者と顧客はSpring Securityのロールで分離されています。Bobの振込先デモ口座は`1200013`です。標準設定ではデータを`./data`に保存します。固定のデモユーザーは`demo`プロファイルでのみ作成されます。PostgreSQLでデモデータを使用する場合は`postgres,demo`を明示的に有効にしてください。
 
 デモ銀行は「はと銀行」（銀行コード`0200`）です。支店コードは3桁です。口座番号は支店・科目別に自動採番し、科目番号帯1桁、店別・科目別連番5桁、Luhn（Mod 10）方式のチェックデジット1桁を合わせた7桁で表現します。普通預金は1番帯、貯蓄預金は2番帯で、採番済み番号は再使用しません。
 
@@ -89,7 +89,7 @@ This project is an independent implementation based on general banking requireme
 Java 21 or later is required. The Maven Wrapper is included.
 
 ```bash
-./mvnw spring-boot:run
+./mvnw spring-boot:run -Dspring-boot.run.profiles=demo
 ```
 
 Open `http://localhost:8080`.
@@ -99,7 +99,7 @@ Open `http://localhost:8080`.
 | Customer portal | `alice` | `demo-pass` |
 | Administration portal | `admin` | `admin-pass` |
 
-The administration portal is available at `http://localhost:8080/admin`. Customer and administrator access is separated by Spring Security roles. Bob's demo destination account number is `1200013`. With the default configuration, data is stored under `./data`.
+The administration portal is available at `http://localhost:8080/admin`. Customer and administrator access is separated by Spring Security roles. Bob's demo destination account number is `1200013`. With the default configuration, data is stored under `./data`. Fixed demo users are created only when the `demo` profile is active. To use demo data with PostgreSQL, explicitly activate the `postgres,demo` profiles.
 
 The demo institution is Hato Bank, with bank code `0200`. Branch codes contain three digits. Seven-digit account numbers are issued automatically for each branch and account category. They consist of a one-digit product range, a five-digit branch/product sequence, and a Luhn (Mod 10) check digit. Ordinary accounts use the `1` range, savings accounts use the `2` range, and issued numbers are never reused.
 

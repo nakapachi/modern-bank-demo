@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.math.BigDecimal;
 
 @Configuration
+@Profile("demo")
 public class DemoDataConfig {
     @Bean
     CommandLineRunner demoData(AppUserRepository users, BankAccountRepository accounts,

@@ -6,10 +6,12 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.test.context.ActiveProfiles;
 import java.math.BigDecimal;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest(properties = "spring.datasource.url=jdbc:h2:mem:banking-test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE")
+@ActiveProfiles("demo")
 @Transactional
 class BankingServiceTest {
     @Autowired BankingService banking;
